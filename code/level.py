@@ -27,9 +27,9 @@ class Level:
             'object': import_csv_layout('graphics/map/map_Objects.csv')
         }
         graphics = {
-            'grass': import_folder('graphics/grass')
+            'grass': import_folder('graphics/grass'),
+            'object': import_folder('graphics/objects')
         }
-        print(graphics)
 
         for style, layout in layouts.items():
             for row_index, row in enumerate(layout):
@@ -47,7 +47,9 @@ class Level:
                                  self.obstacle_sprites], 'grass', random_grass_image)
                         if style == 'object':
                             # create object tile
-                            pass
+                            surf = graphics['object'][int(col)]
+                            Tile((x, y), [self.visible_sprites,
+                                 self.obstacle_sprites], 'object', surf)
         self.player = Player(
             (2000, 1430), [self.visible_sprites], self.obstacle_sprites)
 
@@ -55,6 +57,7 @@ class Level:
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
+        debug(self.player.status)
 
 
 class YsortCameraGroup(pygame.sprite.Group):
