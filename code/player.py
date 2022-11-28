@@ -37,10 +37,13 @@ class Player(pygame.sprite.Sprite):
     def input(self):
         keys = pygame.key.get_pressed()
 
+            # movement input
+
         if keys[pygame.K_w]:
             self.direction.y = -1
             self.status = 'up'
         elif keys[pygame.K_s]:
+
             self.direction.y = 1
             self.status = 'down'
         else:
@@ -78,7 +81,7 @@ class Player(pygame.sprite.Sprite):
             self.direction.y = 0
             if not 'attack' in self.status:
                 if 'idle' in self.status:
-                    self.status.replace('_idle', '_attack')
+                    self.status = self.status.replace('_idle', '_attack')
                 else:
                     self.status = self.status + '_attack'
             else:
