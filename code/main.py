@@ -13,7 +13,7 @@ class Game:
             size=(WIDTH, HEIGHT))
         pygame.display.set_caption('The Legend Of Bison')
         self.clock = pygame.time.Clock()
-        self.level = Level() 
+        self.level = Level()
 
     def run(self):
         while True:
