@@ -69,7 +69,6 @@ class Enemy(Entity):
             self.direction = pygame.math.Vector2()
 
     def update(self):
-        self.get_status(player?)
         self.move(self.speed)
 
     def enemy_update(self, player):

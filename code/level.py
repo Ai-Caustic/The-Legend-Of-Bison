@@ -93,6 +93,7 @@ class Level:
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
+        self.visible_sprites.enemy_updates(self.player)
         self.ui.display(self.player)
 
 
